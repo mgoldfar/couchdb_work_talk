@@ -87,6 +87,7 @@ class JamendoCallbacks # (2)
   end
 end
 
+srand
 parser = XML::SaxParser.io(ARGF) # (7)
 parser.callbacks = JamendoCallbacks.new
 parser.parse
