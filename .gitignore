@@ -54,3 +54,6 @@ build-iPhoneSimulator/
 
 # Ignore temp files
 *~
+
+# Ignore instance directoreis
+/instance*
