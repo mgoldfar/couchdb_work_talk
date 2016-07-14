@@ -51,3 +51,6 @@ build-iPhoneSimulator/
 
 # Ignore data files
 *.gz
+
+# Ignore temp files
+*~
