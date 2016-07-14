@@ -1,0 +1,10 @@
+{
+   "_id": "_design/length",
+   "language": "javascript",
+   "views": {
+       "max": {
+           "map": "function(doc) {\n  emit(null, doc.len);\n}",
+           "reduce": "function(keys, values, rereduce) {\n  return Math.max.apply({}, values);\n}"
+       }
+   }
+}

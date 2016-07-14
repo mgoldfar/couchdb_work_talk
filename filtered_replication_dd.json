@@ -1,0 +1,7 @@
+{
+   "_id": "_design/filters",
+   "language": "javascript",
+   "filters": {
+       "max_len": "function(doc, req) { return doc.len <= req.query.max_len; }"
+   }
+}
