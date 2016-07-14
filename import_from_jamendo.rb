@@ -1,3 +1,4 @@
+#! /usr/bin/env ruby
 #---
 # Excerpted from "Seven Databases in Seven Weeks",
 # published by The Pragmatic Bookshelf.
@@ -18,7 +19,7 @@ class JamendoCallbacks # (2)
   def initialize() # (3)
     @db = CouchRest.database!("http://localhost:5984/music") 
     @count = 0
-    @max = 100 # maximum number to insert
+    @max = 2000 # maximum number to insert
     @stack = []
     @artist = nil
     @album = nil

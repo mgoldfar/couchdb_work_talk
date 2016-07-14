@@ -1,0 +1,14 @@
+{
+   "_id": "_design/album",
+   "language": "javascript",
+   "views": {
+       "by_name": {
+           "map": "function(doc) {\n  if ('name' in doc && 'albums' in doc) {\n     doc.albums.forEach(function(album) {\n\tvar key = album.title || album.name;\n        var value = { by: doc.name, album: album }\n        emit(key, value);\n     });\n  }\n}"
+       },
+	   
+	   "by_releasedate": {
+	       "map": "function(doc) {\n  (doc.albums || []).forEach(function(album) {\n\tif (\"releasedate\" in album) {\n\t\tvar date = new Date(album.releasedate);\n\t\temit([date.getFullYear(), date.getMonth(), date.getDay()], 1);\n        }\n  });\n}",
+	       "reduce": "function(key, values, rereduce) {\n   return sum(values);\n}"
+	   }
+   }
+}

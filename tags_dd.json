@@ -1,0 +1,10 @@
+{
+   "_id": "_design/tags",
+   "language": "javascript",
+   "views": {
+       "count": {
+           "map": "function(doc) {\n  (doc.albums || []).forEach(function(album){\n    (album.tracks || []).forEach(function(track){\n      (track.tags || []).forEach(function(tag){\n        emit(tag.idstr, 1);\n      });\n    });\n  });\n}\n",
+           "reduce": "function(key, values, rereduce) {\n   return sum(values)\n}\n"
+       }
+   }
+}
